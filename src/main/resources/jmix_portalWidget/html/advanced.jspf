@@ -19,16 +19,16 @@
 </script>
 
 <div class="widget-header">
-    <h4 class="panel-title">${currentNode.properties["jcr:title"].string}</h4>
+    <h4 class="panel-title" style="${textStyle}">${currentNode.properties["jcr:title"].string}</h4>
 
     <div class="widget-tools">
-        <i class="resize_switch"></i>
+        <i class="resize_switch ${iconColorClass}"></i>
         <c:if test="${widgetHasEditView && widgetIsEditable}">
-            <i class="icon-cog edit_switch"></i>
+            <i class="icon-cog ${iconColorClass} edit_switch"></i>
         </c:if>
-        <i class="icon-minus minimize_action"></i>
+        <i class="icon-minus ${iconColorClass} minimize_action"></i>
         <c:if test="${widgetIsEditable}">
-            <i class="icon-remove delete_action"></i>
+            <i class="icon-remove ${iconColorClass} delete_action"></i>
         </c:if>
     </div>
 </div>

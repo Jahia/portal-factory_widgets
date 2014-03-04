@@ -14,6 +14,8 @@
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
 <%--@elvariable id="nodetype" type="org.jahia.services.content.nodetypes.ExtendedNodeType"--%>
 
+<c:set var="iconColorClass" value="icon-white"/>
+<c:set var="textStyle" value="color:white"/>
 <div class="widget widget-purple" id="w${currentNode.identifier}">
     <%@ include file="advanced.jspf"%>
 </div>
