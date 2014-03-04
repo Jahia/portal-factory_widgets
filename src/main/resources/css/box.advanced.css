@@ -9,6 +9,17 @@
     border-bottom: 1px solid;
     cursor: move;
     position: relative;
+    -webkit-border-top-left-radius: 6px;
+    -webkit-border-top-right-radius: 6px;
+    -moz-border-radius-topleft: 6px;
+    -moz-border-radius-topright: 6px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px
+}
+
+.widget-purple .widget-header {
+    background-color: #6600cc;
+    border-color: #e1bbf1;
 }
 
 .widget-blue .widget-header {
