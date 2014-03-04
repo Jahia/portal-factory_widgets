@@ -53,7 +53,8 @@
                             <c:forEach items="${portal:getViewsSet(portalWidgetMix, portalNode)}" var="skin">
                                 <c:if test="${fn:startsWith(skin.key, 'box')}">
                                 <option value="${skin.key}" ${currentWidgetSkin == skin.key ? 'selected="selected"' : ''}>
-                                    <fmt:message key="${skin.displayName}"/></option>
+                                    ${portal:getMessage(skin.module, skin.displayName, renderContext.mainResourceLocale)}
+                                </option>
                                 </c:if>
                             </c:forEach>
                         </select>
