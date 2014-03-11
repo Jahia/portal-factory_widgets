@@ -15,3 +15,5 @@
 
 [jnt:documentBrowserWidget] > jnt:content, jmix:portalWidget
 - rootPath (string) = "/sites" indexed=no autocreated
+
+[jnt:scriptGadgetWidget] > jnt:content, jmix:portalWidget, jmix:portalGadget

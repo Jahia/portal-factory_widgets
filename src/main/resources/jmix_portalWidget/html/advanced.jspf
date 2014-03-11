@@ -3,12 +3,12 @@
 <c:set var="portalNode" value="${jcr:getParentOfType(currentNode, portalMixin)}"/>
 
 <c:set var="widgetHasEditView"
-       value="${portal:getSpecificView(currentNode.primaryNodeTypeName, 'edit', portalNode) != null}"/>
+       value="${portal:getSpecificView(currentNode.primaryNodeTypeName, 'portal.edit', portalNode) != null}"/>
 <c:set var="widgetIsEditable" value="${jcr:hasPermission(currentNode, 'jcr:write_live')}"/>
 <c:set var="widgetFullView" value="${portal:getSpecificView(currentNode.primaryNodeTypeName, 'full', portalNode)}"/>
 
 <template:addResources type="javascript" resources="jquery.min.js,jquery-ui.min.js" />
-<template:addResources type="javascript" resources="app/portalWidgetWrapper.js"/>
+<template:addResources type="javascript" resources="app/portalWidgetWrapper.js" />
 <template:addResources type="css" resources="box.advanced.css"/>
 
 <script type="text/javascript">

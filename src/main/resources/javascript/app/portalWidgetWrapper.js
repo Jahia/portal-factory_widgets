@@ -1,4 +1,8 @@
+Jahia = Jahia || [];
+Jahia.Portal = Jahia.Portal || [];
+
 Jahia.Portal.AdvancedWidgetWrapper = function (widgetIdentifier, editable, haveFullView) {
+    var instance = this;
     this._minimize = true;
     this.widgetIdentifier = widgetIdentifier;
     this.widget = {};
@@ -7,7 +11,9 @@ Jahia.Portal.AdvancedWidgetWrapper = function (widgetIdentifier, editable, haveF
     this.haveFullView = haveFullView;
 
 
-    this.init("w" + widgetIdentifier);
+    $(document).ready(function(){
+        instance.init("w" + widgetIdentifier);
+    });
 };
 
 Jahia.Portal.AdvancedWidgetWrapper.prototype = {
@@ -28,8 +34,8 @@ Jahia.Portal.AdvancedWidgetWrapper.prototype = {
     switchEditViewListener: function() {
         var instance = this;
         instance.$widget.find(".edit_switch").on("click", function(){
-            if (instance.widget._currentView != "edit") {
-                instance.widget.load("edit");
+            if (instance.widget._currentView != "portal.edit") {
+                instance.widget.load("portal.edit");
             } else {
                 instance.widget.load();
             }
