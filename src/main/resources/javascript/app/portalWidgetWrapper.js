@@ -54,13 +54,9 @@ Jahia.Portal.AdvancedWidgetWrapper.prototype = {
 
         resizeSwitch.on("click", function(){
             if(instance.widget._state != "full"){
-                if(instance.haveFullView) {
-                    portal.loadSingleWidget(instance.widget._portal.fullTemplate, instance.widgetIdentifier, "full", "full");
-                }else {
-                    portal.loadSingleWidget(instance.widget._portal.fullTemplate, instance.widgetIdentifier, "full");
-                }
+                portal.loadInCurrentTab(instance.widget._jcrIdentifier, instance.haveFullView ? "portal.full" : "portal.view", "full", true, instance.widget._portal.fullTemplate);
             }else {
-                portal.reloadTab();
+                portal.loadInCurrentTab();
             }
         });
     },
