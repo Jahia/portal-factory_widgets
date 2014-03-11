@@ -17,3 +17,6 @@
 - rootPath (string) = "/sites" indexed=no autocreated
 
 [jnt:scriptGadgetWidget] > jnt:content, jmix:portalWidget, jmix:portalGadget
+- j:script (string, richtext) = "" indexed=no autocreated
+
+[jnt:marioWorldWidget] > jnt:content, jmix:portalWidget, jmix:portalGadget

@@ -15,16 +15,4 @@
 <%--@elvariable id="currentResource" type="org.jahia.services.render.Resource"--%>
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
 
-<p>
-    view
-</p>
-<style>
-    #w_${currentNode.identifier} .gadget{
-        width: 100% !important;
-    }
-
-    #w_${currentNode.identifier} .gadget iframe{
-        width: 100% !important;
-    }
-</style>
-<script src="//www.gmodules.com/ig/ifr?url=http://my-igadgets.googlecode.com/files/supermarioworld2.xml&amp;synd=open&amp;w=400&amp;h=400&amp;title=__MSG_title__&amp;lang=fr&amp;country=ALL&amp;border=http%3A%2F%2Fwww.gmodules.com%2Fig%2Fimages%2F&amp;output=js"></script>
+${currentNode.properties['j:script'].string}
