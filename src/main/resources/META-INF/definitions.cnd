@@ -20,3 +20,6 @@
 - j:script (string, richtext) = "" indexed=no autocreated
 
 [jnt:marioWorldWidget] > jnt:content, jmix:portalWidget, jmix:portalGadget
+
+[jnt:bookmarksWidget] > jnt:currentUserBookmarks, jmix:portalWidget, jmix:portalGadget
+ - numberOfBookmarksPerPage (long) = '10' indexed=no
