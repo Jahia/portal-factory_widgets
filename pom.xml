@@ -8,11 +8,11 @@
     <version>7.0.0.0-SNAPSHOT</version>
   </parent>
   <groupId>org.jahia.modules</groupId>
-  <artifactId>portal-widgets</artifactId>
+  <artifactId>portal-factory_widgets</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>bundle</packaging>
-  <name>portal widgets</name>
-  <description>This is the custom module (portal widgets) for running on a Jahia xCM server.</description>
+  <name>Portal Factory - widgets</name>
+  <description>This is the custom module (portal factory - widgets) for running on a Jahia xCM server.</description>
   <scm>
     <connection>scm:dummy:uri</connection>
     <developerConnection>scm:dummy:uri</developerConnection>
@@ -30,7 +30,7 @@
   <dependencies>
     <dependency>
       <groupId>org.jahia.modules</groupId>
-      <artifactId>portal-factory</artifactId>
+      <artifactId>portal-factory_core</artifactId>
       <version>1.0-SNAPSHOT</version>
       <scope>provided</scope>
     </dependency>
@@ -69,7 +69,7 @@
         <extensions>true</extensions>
         <configuration>
           <instructions>
-            <Jahia-Depends>default,bookmarks,twitter,portal-factory</Jahia-Depends>
+            <Jahia-Depends>default,bookmarks,twitter,portal-factory_core</Jahia-Depends>
           </instructions>
         </configuration>
       </plugin>
