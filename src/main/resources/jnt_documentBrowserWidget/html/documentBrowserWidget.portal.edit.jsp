@@ -28,9 +28,6 @@
 
     <div class="box-1">
         <form name="feed_form">
-            <input type="hidden" name="jcrNodeType" ng-model="doc.jcrNodeType"
-                   ng-init="doc.jcrNodeType = '${currentNode.primaryNodeTypeName}'"/>
-
             <div class="row-fluid">
                 <div class="span12">
                     <label>
@@ -71,7 +68,7 @@
             <div class="row-fluid">
                 <div class="span12">
                     <button class="btn" ng-click="cancel()"><fmt:message key="cancel"/></button>
-                    <button class="btn btn-primary" ng-click="update(doc)">
+                    <button class="btn btn-primary" ng-click="update()">
                         <fmt:message key="save"/>
                     </button>
                 </div>

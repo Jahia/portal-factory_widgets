@@ -37,8 +37,8 @@ googleFeedWidget.controller('google-feed-edit-ctrl', function test($scope) {
         $scope.widget = portal.getCurrentWidget(widgetId);
     };
 
-    $scope.update = function(form){
-        $scope.widget.performUpdate(form, function(data){
+    $scope.update = function(){
+        $scope.widget.performUpdate($("#"+ $scope.widget._id + " form").serializeArray(), function (data) {
             $scope.widget.load();
         });
     };

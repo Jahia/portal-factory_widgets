@@ -49,10 +49,10 @@ twitterWidget.controller('twitter-edit-ctrl', function ctrl($scope) {
         $("#" + widgetId).find(".twitter-tooltip").tooltip();
     };
 
-    $scope.update = function(form){
-        $scope.widget.performUpdate(form, function(data){
+    $scope.update = function(){
+        $scope.widget.performUpdate($("#"+ $scope.widget._id + " form").serializeArray(), function (data) {
             $scope.widget.load();
-        })
+        });
     };
 
     $scope.cancel = function(){

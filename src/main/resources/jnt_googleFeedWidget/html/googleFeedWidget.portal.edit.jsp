@@ -24,9 +24,6 @@
 
     <div class="box-1">
         <form name="feed_form">
-            <input type="hidden" name="jcrNodeType" ng-model="feed.jcrNodeType"
-                   ng-init="feed.jcrNodeType = '${currentNode.primaryNodeTypeName}'"/>
-
             <div class="row-fluid">
                 <div class="span12">
                     <label>

@@ -34,8 +34,6 @@
 
 <div class="box-1">
 <form name="twitter_form" class="simple-form">
-<input type="hidden" name="jcrNodeType" ng-model="twitter.jcrNodeType"
-       ng-init="twitter.jcrNodeType = '${currentNode.primaryNodeTypeName}'"/>
 
 <div class="row-fluid">
     <div class="span12">
@@ -310,7 +308,7 @@
 <div class="row-fluid">
     <div class="span12">
         <button class="btn" ng-click="cancel()"><fmt:message key="cancel"/></button>
-        <button class="btn btn-primary" ng-disabled="twitter_form.$invalid" ng-click="update(twitter)">
+        <button class="btn btn-primary" ng-disabled="twitter_form.$invalid" ng-click="update()">
             <fmt:message key="save"/>
         </button>
     </div>
