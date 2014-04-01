@@ -43,6 +43,7 @@ twitterWidget.controller('twitter-view-ctrl', function ctrl($scope) {
 
 twitterWidget.controller('twitter-edit-ctrl', function ctrl($scope) {
     $scope.widget = {};
+    $scope.twitter = {};
 
     $scope.init = function(widgetId){
         $scope.widget = portal.getCurrentWidget(widgetId);

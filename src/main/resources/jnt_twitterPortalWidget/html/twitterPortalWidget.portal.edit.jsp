@@ -74,13 +74,9 @@
         <label>
             <span><fmt:message key="jnt_twitterWidget.theme"/>:</span>
 
-            <select name="theme" ng-model='twitter.theme'
-                    <c:if test="${not empty properties.theme}">
-                        ng-init="twitter.theme = '${properties.theme.string}'"
-                    </c:if>
-                    >
-                <option value="dark">dark</option>
-                <option value="light">light</option>
+            <select name="theme">
+                <option value="dark" <c:if test="${properties.theme.string eq 'dark'}">selected="selected"</c:if>>dark</option>
+                <option value="light" <c:if test="${properties.theme.string eq 'light'}">selected="selected"</c:if>>light</option>
             </select>
 
             <a href="#" class="twitter-tooltip" data-placement="right" data-toggle="tooltip"
@@ -288,13 +284,9 @@
     <div class="span12">
         <label>
             <span><fmt:message key="jnt_twitterWidget.ariapolite"/>:</span>
-            <select name="theme" ng-model='twitter.ariapolite'
-                    <c:if test="${not empty properties.ariapolite}">
-                        ng-init="twitter.ariapolite = '${properties.ariapolite.string}'"
-                    </c:if>
-                    >
-                <option value="assertive">assertive</option>
-                <option value="polite">polite</option>
+            <select name="ariapolite">
+                <option value="assertive" <c:if test="${properties.ariapolite.string eq 'assertive'}">selected="selected"</c:if>>assertive</option>
+                <option value="polite" <c:if test="${properties.ariapolite.string eq 'polite'}">selected="selected"</c:if>>polite</option>
             </select>
 
             <a href="#" class="twitter-tooltip" data-placement="right" data-toggle="tooltip"
