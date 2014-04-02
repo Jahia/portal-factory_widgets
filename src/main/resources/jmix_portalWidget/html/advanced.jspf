@@ -1,6 +1,8 @@
 <c:set var="portalMixin" value="<%= PortalConstants.JMIX_PORTAL %>"/>
+<c:set var="portalModelNT" value="<%= PortalConstants.JNT_PORTAL_MODEL %>"/>
 <c:set var="fullTemplateProp" value="<%= PortalConstants.J_FULL_TEMPLATE %>"/>
 <c:set var="portalNode" value="${jcr:getParentOfType(currentNode, portalMixin)}"/>
+<c:set var="isModel" value="${jcr:isNodeType(portalNode, portalModelNT)}"/>
 
 <c:set var="widgetHasEditView"
        value="${portal:getSpecificView(currentNode.primaryNodeTypeName, 'portal.edit', portalNode) != null}"/>
@@ -15,7 +17,7 @@
 <script type="text/javascript">
     // skin javascript controller
     $(document).ready(function(){
-        new Jahia.Portal.AdvancedWidgetWrapper("${currentNode.identifier}", ${widgetIsEditable}, ${widgetFullView != null});
+        new Jahia.Portal.AdvancedWidgetWrapper("${currentNode.identifier}", ${widgetIsEditable}, ${widgetFullView != null}, ${isModel});
     });
 </script>
 
@@ -30,6 +32,9 @@
         <i class="icon-minus ${iconColorClass} minimize_action"></i>
         <c:if test="${widgetIsEditable}">
             <i class="icon-remove ${iconColorClass} delete_action"></i>
+        </c:if>
+        <c:if test="${isModel}">
+            <i class="icon-edit ${iconColorClass} model_switch"></i>
         </c:if>
     </div>
 </div>
