@@ -29,7 +29,7 @@ Jahia.Portal.AdvancedWidgetWrapper.prototype = {
         if(instance.widget._portal.fullTemplate){
             instance.switchFullStateListener();
         }
-        if(instance.isModel){
+        if(instance.isModel && instance.editable){
             instance.switchModelViewListener();
         }
         instance.minimizeListener();

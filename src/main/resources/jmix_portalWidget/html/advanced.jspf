@@ -37,7 +37,7 @@
         <c:if test="${widgetIsEditable}">
             <i class="icon-remove ${iconColorClass} delete_action"></i>
         </c:if>
-        <c:if test="${isModel}">
+        <c:if test="${isModel && widgetIsEditable}">
             <i class="icon-edit ${iconColorClass} model_switch"></i>
         </c:if>
     </div>
