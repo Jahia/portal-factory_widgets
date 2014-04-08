@@ -12,7 +12,7 @@ googleFeedWidget.controller('google-feed-view-ctrl', function ctrl($scope) {
         function initFeed(){
             if($scope.url){
                 var feedControl = new google.feeds.FeedControl();
-                feedControl.addFeed("http://www.digg.com/rss/index.xml");
+                feedControl.addFeed($scope.url);
                 feedControl.setNumEntries($scope.nbEntries);
                 feedControl.draw($("#" + $scope.feedId).find(".feeds").get(0));
             }
