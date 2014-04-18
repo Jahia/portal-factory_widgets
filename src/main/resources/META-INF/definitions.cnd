@@ -23,3 +23,6 @@
 
 [jnt:bookmarksWidget] > jnt:currentUserBookmarks, jmix:portalWidget, jmix:portalGadget
  - numberOfBookmarksPerPage (long) = '10' indexed=no
+
+[jnt:portletWidget] > jnt:content, jmix:portalWidget, jmix:nodeReference, jmix:portalGadget
+ - j:node (weakreference) < jnt:portlet
