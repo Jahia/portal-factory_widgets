@@ -5,7 +5,6 @@
 <%@ taglib prefix="utility" uri="http://www.jahia.org/tags/utilityLib" %>
 <%@ taglib prefix="template" uri="http://www.jahia.org/tags/templateLib" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ taglib prefix="portal" uri="http://www.jahia.org/tags/portalLib" %>
 <%--@elvariable id="currentNode" type="org.jahia.services.content.JCRNodeWrapper"--%>
 <%--@elvariable id="out" type="java.io.PrintWriter"--%>
 <%--@elvariable id="script" type="org.jahia.services.render.scripting.Script"--%>
@@ -14,7 +13,7 @@
 <%--@elvariable id="renderContext" type="org.jahia.services.render.RenderContext"--%>
 <%--@elvariable id="currentResource" type="org.jahia.services.render.Resource"--%>
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
-<%--@elvariable id="skin" type="org.jahia.services.render.View"--%>
+<%--@elvariable id="portalContext" type="org.jahia.modules.portal.service.bean.PortalContext"--%>
 
 <c:set var="portalTabNT" value="<%= PortalConstants.JNT_PORTAL_TAB %>"/>
 <c:set var="portalMix" value="<%= PortalConstants.JMIX_PORTAL %>"/>
@@ -50,12 +49,10 @@
                     <label>
                         <span>skin:</span>
                         <select name="j:widgetSkin">
-                            <c:forEach items="${portal:getViewsSet(portalWidgetMix, portalNode)}" var="skin">
-                                <c:if test="${fn:startsWith(skin.key, 'box')}">
+                            <c:forEach items="${portalContext.portalTabSkins}" var="skin">
                                 <option value="${skin.key}" ${currentWidgetSkin == skin.key ? 'selected="selected"' : ''}>
-                                    ${portal:getMessage(skin.module, skin.displayName, renderContext.mainResourceLocale)}
+                                    ${skin.name}
                                 </option>
-                                </c:if>
                             </c:forEach>
                         </select>
                     </label>
