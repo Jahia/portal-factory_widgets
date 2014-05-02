@@ -26,7 +26,7 @@
 		<span><i ng-class="getIcon(item)"></i> {{item.title}}</span>
 				<a ng-if="isFile(item)" href="{{item.url}}" download><i class="icon-download-alt"></i>download</a>
 		<ul>
-			<li ng-repeat="item in item.childs" ng-include="'treeItem.html'" ng-init="initTree()">
+			<li ng-repeat="item in item.childs" ng-include="'treeItem.html'" ng-init="initTree()" style="display: none;">
 			</li>
 		</ul>
 	</script>
