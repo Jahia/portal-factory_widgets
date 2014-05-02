@@ -23,20 +23,26 @@
 	 , '${currentNode.properties['rootPath'].string}')">
 
 	<script type="text/ng-template" id="treeItem.html">
-		<span><i ng-class="getIcon(item)"></i> {{item.title}}</span>
+		<span ng-click="load(item)"><i ng-class="getIcon(item)"></i> {{item.title}}</span>
 				<a ng-if="isFile(item)" href="{{item.url}}" download><i class="icon-download-alt"></i>download</a>
-		<ul>
-			<li ng-repeat="item in item.childs" ng-include="'treeItem.html'" ng-init="initTree()" style="display: none;">
+
+		<ul ng-show="item.displayed">
+			<li ng-repeat="item in item.childs" ng-include="'treeItem.html'" class="parent_li">
 			</li>
 		</ul>
 	</script>
 
 	<div class="tree well">
-		<ul>
-			<li ng-include="'treeItem.html'">
+        <ul>
+            <li class="parent_li">
+                <span ng-click="load(root)"><i ng-class="getIcon(root)"></i> {{root.title}}</span>
+                <ul ng-show="root.displayed">
+                    <li ng-repeat="item in root.childs" ng-include="'treeItem.html'" class="parent_li">
 
-			</li>
-		</ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
 	</div>
 </div>
 

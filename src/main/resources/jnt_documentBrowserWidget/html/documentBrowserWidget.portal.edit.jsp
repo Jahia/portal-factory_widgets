@@ -44,23 +44,29 @@
 						<span>Root path:</span>
 						<input type="text" name="rootPath" ng-model="doc.rootPath" id="rootPath_${currentNode.identifier}"
 							   ng-init="doc.rootPath = '${currentNode.properties['rootPath'].string}'"/>
-						<a href="#" ng-click="openSelectRootPath()">select</a>
 
-						<script type="text/ng-template" id="treeItem.html">
-							<span ng-click="selectRootPath(item)"><i ng-class="getIcon(item)"></i> {{item.title}}</span>
-							<ul>
-								<li ng-if="!isFile(item)" ng-repeat="item in item.childs" ng-include="'treeItem.html'">
-								</li>
-							</ul>
-						</script>
+                        <script type="text/ng-template" id="treeItem.html">
+                            <span ng-click="load(item)" ng-class="isSelected(item) ? 'selected' : ''"><i ng-class="getIcon(item)"></i> {{item.title}}</span>
+                            <a ng-if="isFile(item)" href="{{item.url}}" download><i class="icon-download-alt"></i>download</a>
 
-						<div ng-show="showSelectRootPath" class="tree well">
-							<ul>
-								<li ng-include="'treeItem.html'">
+                            <ul ng-show="item.displayed">
+                                <li ng-repeat="item in item.childs" ng-include="'treeItem.html'" class="parent_li">
+                                </li>
+                            </ul>
+                        </script>
 
-								</li>
-							</ul>
-						</div>
+                        <div class="tree well">
+                            <ul>
+                                <li class="parent_li">
+                                    <span ng-click="load(root)"><i ng-class="getIcon(root)"></i> {{root.title}}</span>
+                                    <ul ng-show="root.displayed">
+                                        <li ng-repeat="item in root.childs" ng-include="'treeItem.html'" class="parent_li">
+
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
 					</label>
 				</div>
 			</div>
