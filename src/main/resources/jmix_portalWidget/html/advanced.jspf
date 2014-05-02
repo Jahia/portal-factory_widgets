@@ -25,7 +25,7 @@
 <script type="text/javascript">
     // skin javascript controller
     $(document).ready(function(){
-        new Jahia.Portal.AdvancedWidgetWrapper("${currentNode.identifier}", ${widgetIsEditable}, ${widgetFullView != null}, "${deleteConfirmMessage}");
+        new Jahia.Portal.AdvancedWidgetWrapper("${currentNode.identifier}", ${widgetIsEditable}, ${widgetFullView}, "${deleteConfirmMessage}");
     });
 </script>
 
