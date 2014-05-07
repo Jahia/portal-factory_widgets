@@ -14,8 +14,6 @@
 <%--@elvariable id="nodetype" type="org.jahia.services.content.nodetypes.ExtendedNodeType"--%>
 <%--@elvariable id="portalContext" type="org.jahia.modules.portal.service.bean.PortalContext"--%>
 
-<c:set var="iconColorClass" value="icon-white"/>
-<c:set var="textStyle" value="color:white"/>
-<div class="widget widget-blue" id="w${currentNode.identifier}">
+<div class="widget widget-white" id="w${currentNode.identifier}">
     <%@ include file="advanced.jspf"%>
 </div>
