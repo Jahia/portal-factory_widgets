@@ -25,7 +25,7 @@ Jahia.Portal.WidgetModelCtrl.prototype = {
 
         instance.$widget.find(".widgetModelForm .submit").on("click", function(e){
             JCRRestUtils.standardCall(JCRRestUtils.buildURL("","","",instance.widget._jcrIdentifier), "PUT",
-                JSON.stringify({properties: JCRRestUtils.arrayToDataProperties($(".widgetModelForm").serializeArray(), true)}),
+                JSON.stringify({properties: JCRRestUtils.arrayToDataProperties(instance.$widget.find(".widgetModelForm").serializeArray(), true)}),
                 function (data) {
                     instance.widget.load("portal.model", function(){
                         $(".model-saved-message").show();
