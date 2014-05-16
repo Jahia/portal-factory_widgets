@@ -3,7 +3,7 @@ Jahia.Portal = Jahia.Portal || [];
 
 Jahia.Portal.AdvancedWidgetWrapper = function (widgetIdentifier, editable, haveFullView, deleteConfirmMessage) {
     var instance = this;
-    this._minimize = true;
+    this._minimize = false;
     this.widgetIdentifier = widgetIdentifier;
     this.widget = {};
     this.$widget = {};
