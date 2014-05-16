@@ -27,9 +27,7 @@ Jahia.Portal.WidgetModelCtrl.prototype = {
             JCRRestUtils.standardCall(JCRRestUtils.buildURL("","","",instance.widget._jcrIdentifier), "PUT",
                 JSON.stringify({properties: JCRRestUtils.arrayToDataProperties(instance.$widget.find(".widgetModelForm").serializeArray(), true)}),
                 function (data) {
-                    instance.widget.load("portal.model", function(){
-                        $(".model-saved-message").show();
-                    });
+                    instance.widget.load("portal.view");
                 });
             return false;
         });
