@@ -1,6 +1,6 @@
 var documentBrowserWidget = angular.module('documentBrowserWidgetApp', []);
 
-documentBrowserWidget.controller('document-browser-ctrl', function ctrl($scope) {
+documentBrowserWidget.controller('document-browser-ctrl', ['$scope', function($scope) {
 	$scope.htmlId = "";
     $scope.root = [];
 
@@ -61,9 +61,9 @@ documentBrowserWidget.controller('document-browser-ctrl', function ctrl($scope) 
             });
         });
     };
-});
+}]);
 
-documentBrowserWidget.controller('document-browser-edit-ctrl', function test($scope) {
+documentBrowserWidget.controller('document-browser-edit-ctrl', ['$scope', function($scope) {
 	$scope.root = [];
 	$scope.doc = {};
 	$scope.widget = {};
@@ -142,4 +142,4 @@ documentBrowserWidget.controller('document-browser-edit-ctrl', function test($sc
 	$scope.cancel = function () {
 		$scope.widget.load();
 	};
-});
+}]);

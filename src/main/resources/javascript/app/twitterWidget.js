@@ -1,6 +1,6 @@
 var twitterWidget = angular.module('twitterWidgetApp', ['colorpicker.module']);
 
-twitterWidget.controller('twitter-view-ctrl', function ctrl($scope) {
+twitterWidget.controller('twitter-view-ctrl', ['$scope', function ($scope) {
     $scope.widget = {};
 
     $scope.init = function (widgetId) {
@@ -39,9 +39,9 @@ twitterWidget.controller('twitter-view-ctrl', function ctrl($scope) {
             twttr.widgets.load();
         }
     }
-});
+}]);
 
-twitterWidget.controller('twitter-edit-ctrl', function ctrl($scope) {
+twitterWidget.controller('twitter-edit-ctrl', ['$scope', function($scope) {
     $scope.widget = {};
     $scope.twitter = {};
 
@@ -59,4 +59,4 @@ twitterWidget.controller('twitter-edit-ctrl', function ctrl($scope) {
     $scope.cancel = function(){
         $scope.widget.load();
     };
-});
+}]);

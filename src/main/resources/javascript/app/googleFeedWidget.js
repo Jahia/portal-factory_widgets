@@ -1,7 +1,7 @@
 var googleFeedWidget = angular.module('googleFeedWidgetApp', []);
 
 
-googleFeedWidget.controller('google-feed-view-ctrl', function ctrl($scope) {
+googleFeedWidget.controller('google-feed-view-ctrl', ['$scope', function($scope) {
     $scope.feedId = "";
     $scope.url = "";
     $scope.nbEntries = 10;
@@ -28,9 +28,9 @@ googleFeedWidget.controller('google-feed-view-ctrl', function ctrl($scope) {
         }
 
     };
-});
+}]);
 
-googleFeedWidget.controller('google-feed-edit-ctrl', function test($scope) {
+googleFeedWidget.controller('google-feed-edit-ctrl', ['$scope', function($scope) {
     $scope.widget = {};
 
     $scope.init = function(widgetId){
@@ -46,4 +46,4 @@ googleFeedWidget.controller('google-feed-edit-ctrl', function test($scope) {
     $scope.cancel = function(){
         $scope.widget.load();
     };
-});
+}]);

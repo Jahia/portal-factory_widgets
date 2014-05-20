@@ -5,7 +5,7 @@ function mapApiLoaded(){
     window.map_api_loaded = true;
 }
 
-googleMapWidget.controller('google-map-view-ctrl', function ctrl($scope) {
+googleMapWidget.controller('google-map-view-ctrl', ['$scope', function($scope) {
     $scope.widget = [];
 
     $scope.init = function (widgetId, canvasId) {
@@ -33,4 +33,4 @@ googleMapWidget.controller('google-map-view-ctrl', function ctrl($scope) {
         });
 
     }
-});
+}]);
