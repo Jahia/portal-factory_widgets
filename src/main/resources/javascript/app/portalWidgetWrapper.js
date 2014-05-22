@@ -1,7 +1,7 @@
 Jahia = Jahia || [];
 Jahia.Portal = Jahia.Portal || [];
 
-Jahia.Portal.AdvancedWidgetWrapper = function (widgetIdentifier, editable, haveFullView, deleteConfirmMessage) {
+Jahia.Portal.AdvancedWidgetWrapper = function (widgetIdentifier, editable, haveFullView, deleteConfirmMessage, deleteConfirmMessageRef) {
     var instance = this;
     this._minimize = false;
     this.widgetIdentifier = widgetIdentifier;
@@ -11,6 +11,7 @@ Jahia.Portal.AdvancedWidgetWrapper = function (widgetIdentifier, editable, haveF
     this.isModel = portal.isModel;
     this.haveFullView = haveFullView;
     this.deleteConfirmDelete = deleteConfirmMessage;
+    this.deleteConfirmDeleteRef = deleteConfirmMessageRef;
 
     $(document).ready(function(){
         instance.init("w" + widgetIdentifier);
@@ -84,11 +85,13 @@ Jahia.Portal.AdvancedWidgetWrapper.prototype = {
         var instance = this;
         instance.$widget.find(".delete_action").on("click", function(){
             if(instance.widget._isReference){
-                if(confirm(instance.deleteConfirmDelete)){
+                if(confirm(instance.deleteConfirmDeleteRef)){
                     portal.deleteWidget(instance.widget);
                 }
             }else {
-                portal.deleteWidget(instance.widget);
+                if(confirm(instance.deleteConfirmDelete)){
+                    portal.deleteWidget(instance.widget);
+                }
             }
         });
     },
