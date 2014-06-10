@@ -43,7 +43,7 @@
                 <div class="span12">
                     <label>
                         <span>nb of entries:</span>
-                        <input type="number" name="numberOfBookmarksPerPage" value="${currentNode.properties['numberOfBookmarksPerPage'].string}"/>
+                        <input type="number" name="numberOfBookmarksPerPage" value="${not empty currentNode.properties['numberOfBookmarksPerPage'].string ? currentNode.properties['numberOfBookmarksPerPage'].string : 5}"/>
                     </label>
                 </div>
             </div>
