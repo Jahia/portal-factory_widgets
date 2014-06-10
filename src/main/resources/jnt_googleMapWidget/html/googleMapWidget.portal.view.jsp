@@ -21,6 +21,10 @@
         margin: 0;
         padding: 0;
     }
+
+    .google-map img{
+        max-width: none;
+    }
 </style>
 
 <div id="google-map-${currentNode.identifier}" ng-controller="google-map-view-ctrl"
