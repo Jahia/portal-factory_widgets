@@ -18,23 +18,23 @@
 <c:set var="portalTabNT" value="<%= PortalConstants.JNT_PORTAL_TAB %>"/>
 <c:set var="portalTabNode" value="${jcr:getParentOfType(currentNode, portalTabNT)}"/>
 
+<template:addResources type="javascript" resources="app/bookmarksWidget.js" />
 <template:addResources type="css" resources="commonsWidget.css"/>
 
-<div class="widget-edit">
+<div class="widget-edit" id="bookmarks-${currentNode.identifier}" ng-controller="bookmarks-edit-ctrl"
+         ng-init="init('bookmarks-${currentNode.identifier}')">
     <h2>
-        Edit: ${currentNode.displayableName}
+        <fmt:message key="jnt_bookmarksWidget"/>
     </h2>
 
     <div class="box-1">
-        <form action="<c:url value="${url.base}${currentNode.path}"/>" method="POST">
-            <input type="hidden" name="jcrRedirectTo" value="<c:url value="${url.base}${portalTabNode.path}"/>">
-            <input type="hidden" name="jcrNodeType" value="${currentNode.primaryNodeTypeName}"/>
-
+        <form name="bookarm_form">
             <div class="row-fluid">
                 <div class="span12">
                     <label>
                         <span><fmt:message key="title"/>:</span>
-                        <input type="text" name="jcr:title" value="${currentNode.displayableName}"/>
+                        <input type="text" name="jcr:title" ng-model="bookmark['jcr:title']"
+                               ng-init="bookmark['jcr:title'] = '${currentNode.displayableName}'"/>
                     </label>
                 </div>
             </div>
@@ -42,15 +42,18 @@
             <div class="row-fluid">
                 <div class="span12">
                     <label>
-                        <span>nb of entries:</span>
-                        <input type="number" name="numberOfBookmarksPerPage" value="${not empty currentNode.properties['numberOfBookmarksPerPage'].string ? currentNode.properties['numberOfBookmarksPerPage'].string : 5}"/>
+                        <span><fmt:message key="jnt_googleFeedWidget.nbEntries"/>:</span>
+
+                        <input type="number" name="numberOfBookmarksPerPage" ng-model="bookmark.numberOfBookmarksPerPage"
+                               ng-init="bookmark.numberOfBookmarksPerPage = ${currentNode.properties['numberOfBookmarksPerPage'].long}" required/>
                     </label>
                 </div>
             </div>
 
             <div class="row-fluid">
                 <div class="span12">
-                    <button class="btn btn-primary" type="submit">
+                    <button class="btn" ng-click="cancel()"><fmt:message key="cancel"/></button>
+                    <button class="btn btn-primary" ng-disabled="bookarm_form.$invalid" ng-click="update()">
                         <fmt:message key="save"/>
                     </button>
                 </div>
@@ -58,3 +61,10 @@
         </form>
     </div>
 </div>
+
+<script type="text/javascript">
+    // Boostrap app
+    $(document).ready(function(){
+        angular.bootstrap(document.getElementById("bookmarks-${currentNode.identifier}"), ['bookmarksWidgetApp']);
+    });
+</script>

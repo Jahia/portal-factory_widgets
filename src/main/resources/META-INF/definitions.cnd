@@ -19,8 +19,8 @@
 [jnt:scriptGadgetWidget] > jnt:content, jmix:portalWidget, jmix:portalGadget
 - j:script (string, richtext) = "" indexed=no autocreated
 
-[jnt:bookmarksWidget] > jnt:currentUserBookmarks, jmix:portalWidget, jmix:portalGadget
- - numberOfBookmarksPerPage (long) = '10' indexed=no
+[jnt:bookmarksWidget] > jnt:content, mix:title, jmix:list, jmix:portalWidget, jmix:portalGadget
+ - numberOfBookmarksPerPage (long) = '10' indexed=no autocreated
 
 [jnt:portletWidget] > jnt:content, jmix:portalWidget, jmix:portalGadget
  - j:node (weakreference) < jnt:portlet
