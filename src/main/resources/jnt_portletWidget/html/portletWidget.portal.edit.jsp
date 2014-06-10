@@ -55,7 +55,6 @@
                         <ui:treeItemSelector fieldId="${currentNode.identifier}_node"
                                              displayFieldId="${currentNode.identifier}_nodeDecoy"
                                              root="${renderContext.site.path}/portlets"
-                                             nodeTypes="jnt:portlet"
                                              displayIncludeChildren="false"
                                              selectableNodeTypes="jnt:portlet"
                                              includeChildren="true"
