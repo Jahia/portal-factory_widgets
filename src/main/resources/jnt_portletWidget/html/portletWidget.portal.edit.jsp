@@ -15,6 +15,7 @@
 <%--@elvariable id="currentResource" type="org.jahia.services.render.Resource"--%>
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
 <%--@elvariable id="skin" type="org.jahia.services.render.View"--%>
+<%--@elvariable id="portalContext" type="org.jahia.modules.portal.service.bean.PortalContext"--%>
 
 <c:set var="portalTabNT" value="<%= PortalConstants.JNT_PORTAL_TAB %>"/>
 <c:set var="portalMix" value="<%= PortalConstants.JMIX_PORTAL %>"/>
@@ -53,7 +54,7 @@
                         <input type="text" id="${currentNode.identifier}_nodeDecoy" readonly="readonly" value="${not empty currentNode.properties['j:node'] ? currentNode.properties['j:node'].node.displayableName : ''}"/>
                         <ui:treeItemSelector fieldId="${currentNode.identifier}_node"
                                              displayFieldId="${currentNode.identifier}_nodeDecoy"
-                                             root="${currentNode.resolveSite.path}/portlets"
+                                             root="${renderContext.site.path}/portlets"
                                              nodeTypes="jnt:portlet"
                                              displayIncludeChildren="false"
                                              selectableNodeTypes="jnt:portlet"
