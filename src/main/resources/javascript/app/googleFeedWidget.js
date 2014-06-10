@@ -32,6 +32,7 @@ googleFeedWidget.controller('google-feed-view-ctrl', ['$scope', function($scope)
 
 googleFeedWidget.controller('google-feed-edit-ctrl', ['$scope', function($scope) {
     $scope.widget = {};
+    $scope.feed = {};
 
     $scope.init = function(widgetId){
         $scope.widget = portal.getCurrentWidget(widgetId);

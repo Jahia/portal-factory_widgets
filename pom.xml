@@ -141,6 +141,7 @@
         <extensions>true</extensions>
         <configuration>
           <instructions>
+              <Export-Package>org.jahia.modules.portal.widgets</Export-Package>
             <Jahia-Depends>default,bookmarks,twitter,portal-factory_core</Jahia-Depends>
           </instructions>
         </configuration>

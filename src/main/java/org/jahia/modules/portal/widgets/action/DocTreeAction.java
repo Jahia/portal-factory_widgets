@@ -2,7 +2,6 @@ package org.jahia.modules.portal.widgets.action;
 
 import org.jahia.bin.Action;
 import org.jahia.bin.ActionResult;
-import org.jahia.services.content.JCRContentUtils;
 import org.jahia.services.content.JCRNodeIteratorWrapper;
 import org.jahia.services.content.JCRNodeWrapper;
 import org.jahia.services.content.JCRSessionWrapper;
@@ -14,8 +13,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
-import javax.jcr.PathNotFoundException;
 import javax.jcr.RepositoryException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -25,6 +24,7 @@ import java.util.Map;
 /**
  * Created by kevan on 31/01/14.
  */
+@Component
 public class DocTreeAction extends Action{
 	private static Logger logger = LoggerFactory.getLogger(DocTreeAction.class);
 

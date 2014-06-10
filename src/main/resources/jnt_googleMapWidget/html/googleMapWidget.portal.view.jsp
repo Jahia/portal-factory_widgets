@@ -4,6 +4,7 @@
 <%@ taglib prefix="utility" uri="http://www.jahia.org/tags/utilityLib" %>
 <%@ taglib prefix="template" uri="http://www.jahia.org/tags/templateLib" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="widget" uri="http://www.jahia.org/tags/widgetLib" %>
 <%--@elvariable id="currentNode" type="org.jahia.services.content.JCRNodeWrapper"--%>
 <%--@elvariable id="out" type="java.io.PrintWriter"--%>
 <%--@elvariable id="script" type="org.jahia.services.render.scripting.Script"--%>
@@ -28,7 +29,8 @@
 </style>
 
 <div id="google-map-${currentNode.identifier}" ng-controller="google-map-view-ctrl"
-     ng-init="init('google-map-${currentNode.identifier}', 'canvas-${currentNode.identifier}')">
+     ng-init="init('google-map-${currentNode.identifier}', 'canvas-${currentNode.identifier}', '${widget:getProperty("googleMapAPIKey")}'
+     , ${currentNode.properties['j:lat'].double}, ${currentNode.properties['j:lng'].double})">
     <div id="canvas-${currentNode.identifier}" class="google-map">
         <p>Map loading ...</p>
     </div>

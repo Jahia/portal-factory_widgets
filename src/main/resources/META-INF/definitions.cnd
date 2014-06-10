@@ -3,8 +3,8 @@
 
 [jnt:googleMapWidget] > jnt:content, jmix:portalWidget
 - j:height (long) = 500 indexed=no autocreated
-
-[jnt:helloWorldWidget] > jnt:content, jmix:portalWidget
+- j:lat (double) = '-34.397' indexed=no autocreated
+- j:lng (double) = '150.644' indexed=no autocreated
 
 [jnt:googleFeedWidget] > jnt:content, jmix:portalWidget
  - url (string) indexed=no

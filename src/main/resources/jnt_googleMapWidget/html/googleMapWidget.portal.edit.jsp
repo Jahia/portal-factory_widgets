@@ -4,6 +4,7 @@
 <%@ taglib prefix="utility" uri="http://www.jahia.org/tags/utilityLib" %>
 <%@ taglib prefix="template" uri="http://www.jahia.org/tags/templateLib" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="widget" uri="http://www.jahia.org/tags/widgetLib" %>
 <%--@elvariable id="currentNode" type="org.jahia.services.content.JCRNodeWrapper"--%>
 <%--@elvariable id="out" type="java.io.PrintWriter"--%>
 <%--@elvariable id="script" type="org.jahia.services.render.scripting.Script"--%>
@@ -13,13 +14,13 @@
 <%--@elvariable id="currentResource" type="org.jahia.services.render.Resource"--%>
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
 
-<template:addResources type="javascript" resources="app/googleFeedWidget.js"/>
+<template:addResources type="javascript" resources="app/googleMapWidget.js"/>
 <template:addResources type="css" resources="commonsWidget.css"/>
 
-<div id="google-feed-${currentNode.identifier}" ng-controller="google-feed-edit-ctrl"
-     ng-init="init('google-feed-${currentNode.identifier}')" class="widget-edit">
+<div id="google-map-${currentNode.identifier}" ng-controller="google-map-edit-ctrl"
+     ng-init="init('google-map-${currentNode.identifier}')" class="widget-edit">
     <h2>
-        <fmt:message key="jnt_googleFeedWidget"/>
+        <fmt:message key="jnt_googleMapWidget"/>
     </h2>
 
     <div class="box-1">
@@ -28,8 +29,8 @@
                 <div class="span12">
                     <label>
                         <span><fmt:message key="title"/>:</span>
-                        <input type="text" name="jcr:title" ng-model="feed['jcr:title']"
-                               ng-init="feed['jcr:title'] = '${currentNode.displayableName}'"/>
+                        <input type="text" name="jcr:title" ng-model="map['jcr:title']"
+                               ng-init="map['jcr:title'] = '${currentNode.displayableName}'"/>
                     </label>
                 </div>
             </div>
@@ -37,10 +38,10 @@
             <div class="row-fluid">
                 <div class="span12">
                     <label>
-                        <span><fmt:message key="jnt_googleFeedWidget.url"/>:</span>
+                        <span><fmt:message key="label.height"/> (px):</span>
 
-                        <input type="text" name="url" ng-model="feed.url"
-                               ng-init="feed.url = '${currentNode.properties['url'].string}'" required/>
+                        <input type="number" name="j:height" ng-model="map['j:height']"
+                               ng-init="map['j:height'] = ${currentNode.properties['j:height'].long}" required/>
                     </label>
                 </div>
             </div>
@@ -48,10 +49,21 @@
             <div class="row-fluid">
                 <div class="span12">
                     <label>
-                        <span><fmt:message key="jnt_googleFeedWidget.nbEntries"/>:</span>
+                        <span><fmt:message key="jnt_googleMapWidget.lat"/>:</span>
 
-                        <input type="number" name="nbEntries" ng-model="feed.nbEntries"
-                               ng-init="feed.nbEntries = ${currentNode.properties['nbEntries'].long}"/>
+                        <input type="text" name="j:lat" ng-model="map['j:lat']"
+                               ng-init="map['j:lat'] = ${currentNode.properties['j:lat'].double}" required/>
+                    </label>
+                </div>
+            </div>
+
+            <div class="row-fluid">
+                <div class="span12">
+                    <label>
+                        <span><fmt:message key="jnt_googleMapWidget.lng"/>:</span>
+
+                        <input type="text" name="j:lng" ng-model="map['j:lng']"
+                               ng-init="map['j:lng'] = ${currentNode.properties['j:lng'].double}" required/>
                     </label>
                 </div>
             </div>
@@ -59,7 +71,7 @@
             <div class="row-fluid">
                 <div class="span12">
                     <button class="btn" ng-click="cancel()"><fmt:message key="cancel"/></button>
-                    <button class="btn btn-primary" ng-click="update(feed)">
+                    <button class="btn btn-primary" ng-click="update(map)">
                         <fmt:message key="save"/>
                     </button>
                 </div>
@@ -70,5 +82,5 @@
 
 <script type="text/javascript">
     // Boostrap app
-    angular.bootstrap(document.getElementById("google-feed-${currentNode.identifier}"), ['googleFeedWidgetApp']);
+    angular.bootstrap(document.getElementById("google-map-${currentNode.identifier}"),['googleMapWidgetApp']);
 </script>
