@@ -90,6 +90,12 @@
     <developerConnection>scm:git:git@github.com:Jahia/portal-widgets.git</developerConnection>
     <url>scm:git:git@github.com:Jahia/portal-widgets.git</url>
   </scm>
+
+    <properties>
+        <export-package>org.jahia.modules.portal.widgets</export-package>
+        <jahia-depends>default,bookmarks,twitter,portal-core</jahia-depends>
+    </properties>
+
   <dependencies>
     <dependency>
       <groupId>org.jahia.modules</groupId>
@@ -124,19 +130,4 @@
       <url>https://devtools.jahia.com/nexus/content/groups/public</url>
     </repository>
   </repositories>
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.felix</groupId>
-        <artifactId>maven-bundle-plugin</artifactId>
-        <extensions>true</extensions>
-        <configuration>
-          <instructions>
-              <Export-Package>org.jahia.modules.portal.widgets</Export-Package>
-            <Jahia-Depends>default,bookmarks,twitter,portal-core</Jahia-Depends>
-          </instructions>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
 </project>
