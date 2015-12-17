@@ -112,8 +112,7 @@
     <div class="span12">
         <label>
             <span><fmt:message key="jnt_twitterWidget.bordercolor"/>:</span>
-            <input colorpicker type="text" name="bordercolor" ng-model="twitter.bordercolor"
-                    />
+            <input colorpicker type="text" name="bordercolor" ng-model="twitter.bordercolor" />
 
             <a href="#" class="twitter-tooltip" data-placement="right" data-toggle="tooltip"
                title="<fmt:message key="jnt_twitterWidget.bordercolor.ui.tooltip"/>">
@@ -127,8 +126,7 @@
     <div class="span12">
         <label>
             <span><fmt:message key="jnt_twitterWidget.noheader"/>:</span>
-            <input type="checkbox" name="noheader" ng-model="twitter.noheader" value="true" value="true"
-                    />
+            <input type="checkbox" name="noheader" ng-model="twitter.noheader" value="true" />
 
             <a href="#" class="twitter-tooltip" data-placement="right" data-toggle="tooltip"
                title="<fmt:message key="jnt_twitterWidget.noheader.ui.tooltip"/>">
@@ -142,8 +140,7 @@
     <div class="span12">
         <label>
             <span><fmt:message key="jnt_twitterWidget.nofooter"/>:</span>
-            <input type="checkbox" name="nofooter" ng-model="twitter.nofooter" value="true" value="true"
-                    />
+            <input type="checkbox" name="nofooter" ng-model="twitter.nofooter" value="true" />
 
             <a href="#" class="twitter-tooltip" data-placement="right" data-toggle="tooltip"
                title="<fmt:message key="jnt_twitterWidget.nofooter.ui.tooltip"/>">
