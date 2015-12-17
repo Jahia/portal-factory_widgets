@@ -140,7 +140,7 @@
     <div class="span12">
         <label>
             <span><fmt:message key="jnt_twitterWidget.noheader"/>:</span>
-            <input type="checkbox" name="noheader" ng-model="twitter.noheader"
+            <input type="checkbox" name="noheader" ng-model="twitter.noheader" value="true" value="true"
                     <c:if test="${not empty properties.noheader}">
                         ng-init="twitter.noheader = ${properties.noheader.boolean}"
                     </c:if>
@@ -158,7 +158,7 @@
     <div class="span12">
         <label>
             <span><fmt:message key="jnt_twitterWidget.nofooter"/>:</span>
-            <input type="checkbox" name="nofooter" ng-model="twitter.nofooter"
+            <input type="checkbox" name="nofooter" ng-model="twitter.nofooter" value="true" value="true"
                     <c:if test="${not empty properties.nofooter}">
                         ng-init="twitter.nofooter = ${properties.nofooter.boolean}"
                     </c:if>
@@ -176,7 +176,7 @@
     <div class="span12">
         <label>
             <span><fmt:message key="jnt_twitterWidget.noborders"/>:</span>
-            <input type="checkbox" name="noborders" ng-model="twitter.noborders"
+            <input type="checkbox" name="noborders" ng-model="twitter.noborders" value="true"
                     <c:if test="${not empty properties.noborders}">
                         ng-init="twitter.noborders = ${properties.noborders.boolean}"
                     </c:if>
@@ -194,7 +194,7 @@
     <div class="span12">
         <label>
             <span><fmt:message key="jnt_twitterWidget.noscrollbar"/>:</span>
-            <input type="checkbox" name="noscrollbar" ng-model="twitter.noscrollbar"
+            <input type="checkbox" name="noscrollbar" ng-model="twitter.noscrollbar" value="true"
                     <c:if test="${not empty properties.noscrollbar}">
                         ng-init="twitter.noscrollbar = ${properties.noscrollbar.boolean}"
                     </c:if>
@@ -212,7 +212,7 @@
     <div class="span12">
         <label>
             <span><fmt:message key="jnt_twitterWidget.transparant"/>:</span>
-            <input type="checkbox" name="transparent" ng-model="twitter.transparent"
+            <input type="checkbox" name="transparent" ng-model="twitter.transparent" value="true"
                     <c:if test="${not empty properties.transparent}">
                         ng-init="twitter.transparent = ${properties.transparent.boolean}"
                     </c:if>
