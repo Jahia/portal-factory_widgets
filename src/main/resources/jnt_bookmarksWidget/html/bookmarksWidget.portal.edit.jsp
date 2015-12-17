@@ -5,6 +5,7 @@
 <%@ taglib prefix="utility" uri="http://www.jahia.org/tags/utilityLib" %>
 <%@ taglib prefix="template" uri="http://www.jahia.org/tags/templateLib" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="functions" uri="http://www.jahia.org/tags/functions" %>
 <%--@elvariable id="currentNode" type="org.jahia.services.content.JCRNodeWrapper"--%>
 <%--@elvariable id="out" type="java.io.PrintWriter"--%>
 <%--@elvariable id="script" type="org.jahia.services.render.scripting.Script"--%>
@@ -33,8 +34,7 @@
                 <div class="span12">
                     <label>
                         <span><fmt:message key="title"/>:</span>
-                        <input type="text" name="jcr:title" ng-model="bookmark['jcr:title']"
-                               ng-init="bookmark['jcr:title'] = '${currentNode.displayableName}'"/>
+                        <input type="text" name="jcr:title" ng-model="bookmark['jcr:title']" />
                     </label>
                 </div>
             </div>
@@ -43,9 +43,7 @@
                 <div class="span12">
                     <label>
                         <span><fmt:message key="jnt_googleFeedWidget.nbEntries"/>:</span>
-
-                        <input type="number" name="numberOfBookmarksPerPage" ng-model="bookmark.numberOfBookmarksPerPage"
-                               ng-init="bookmark.numberOfBookmarksPerPage = ${currentNode.properties['numberOfBookmarksPerPage'].long}" required/>
+                        <input type="number" name="numberOfBookmarksPerPage" ng-model="bookmark.numberOfBookmarksPerPage" required />
                     </label>
                 </div>
             </div>
@@ -63,6 +61,14 @@
 </div>
 
 <script type="text/javascript">
+    if (typeof scope == 'undefined') {
+        var scope = { };
+    }
+    scope['bookmarks-${currentNode.identifier}'] = {};
+    scope['bookmarks-${currentNode.identifier}'].bookmark = {};
+    scope['bookmarks-${currentNode.identifier}'].bookmark['jcr:title'] = '${functions:escapeJavaScript(currentNode.displayableName)}';
+    scope['bookmarks-${currentNode.identifier}'].bookmark.numberOfBookmarksPerPage = ${currentNode.properties['numberOfBookmarksPerPage'].long};
+
     // Boostrap app
     $(document).ready(function(){
         angular.bootstrap(document.getElementById("bookmarks-${currentNode.identifier}"), ['bookmarksWidgetApp']);

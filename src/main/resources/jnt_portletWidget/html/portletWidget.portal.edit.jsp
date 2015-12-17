@@ -41,7 +41,7 @@
                 <div class="span12">
                     <label>
                         <span><fmt:message key="title"/>:</span>
-                        <input type="text" name="jcr:title" value="${currentNode.displayableName}"/>
+                        <input type="text" name="jcr:title" value="<c:out value="${currentNode.displayableName}"/>"/>
                     </label>
                 </div>
             </div>

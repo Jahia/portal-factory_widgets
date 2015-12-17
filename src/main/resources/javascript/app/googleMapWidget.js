@@ -45,6 +45,7 @@ googleMapWidget.controller('google-map-edit-ctrl', ['$scope', function($scope) {
     $scope.map = {};
 
     $scope.init = function(widgetId){
+        $scope.map = scope[widgetId].map;
         $scope.widget = portal.getCurrentWidget(widgetId);
     };
 

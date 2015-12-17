@@ -5,6 +5,7 @@
 <%@ taglib prefix="template" uri="http://www.jahia.org/tags/templateLib" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="widget" uri="http://www.jahia.org/tags/widgetLib" %>
+<%@ taglib prefix="functions" uri="http://www.jahia.org/tags/functions" %>
 <%--@elvariable id="currentNode" type="org.jahia.services.content.JCRNodeWrapper"--%>
 <%--@elvariable id="out" type="java.io.PrintWriter"--%>
 <%--@elvariable id="script" type="org.jahia.services.render.scripting.Script"--%>
@@ -29,8 +30,7 @@
                 <div class="span12">
                     <label>
                         <span><fmt:message key="title"/>:</span>
-                        <input type="text" name="jcr:title" ng-model="map['jcr:title']"
-                               ng-init="map['jcr:title'] = '${currentNode.displayableName}'"/>
+                        <input type="text" name="jcr:title" ng-model="map['jcr:title']" />
                     </label>
                 </div>
             </div>
@@ -40,8 +40,7 @@
                     <label>
                         <span><fmt:message key="label.height"/> (px):</span>
 
-                        <input type="number" name="j:height" ng-model="map['j:height']"
-                               ng-init="map['j:height'] = ${currentNode.properties['j:height'].long}" required/>
+                        <input type="number" name="j:height" ng-model="map['j:height']" required/>
                     </label>
                 </div>
             </div>
@@ -51,8 +50,7 @@
                     <label>
                         <span><fmt:message key="jnt_googleMapWidget.lat"/>:</span>
 
-                        <input type="text" name="j:lat" ng-model="map['j:lat']"
-                               ng-init="map['j:lat'] = ${currentNode.properties['j:lat'].double}" required/>
+                        <input type="text" name="j:lat" ng-model="map['j:lat']" required/>
                     </label>
                 </div>
             </div>
@@ -62,8 +60,7 @@
                     <label>
                         <span><fmt:message key="jnt_googleMapWidget.lng"/>:</span>
 
-                        <input type="text" name="j:lng" ng-model="map['j:lng']"
-                               ng-init="map['j:lng'] = ${currentNode.properties['j:lng'].double}" required/>
+                        <input type="text" name="j:lng" ng-model="map['j:lng']"  required/>
                     </label>
                 </div>
             </div>
@@ -81,6 +78,16 @@
 </div>
 
 <script type="text/javascript">
+    if (typeof scope == 'undefined') {
+        var scope = { };
+    }
+    scope['google-map-${currentNode.identifier}'] = {};
+    scope['google-map-${currentNode.identifier}'].map = {};
+    scope['google-map-${currentNode.identifier}'].map['jcr:title'] = '${functions:escapeJavaScript(currentNode.displayableName)}';
+    scope['google-map-${currentNode.identifier}'].map['j:height'] = ${currentNode.properties['j:height'].long};
+    scope['google-map-${currentNode.identifier}'].map['j:lat'] = ${currentNode.properties['j:lat'].double};
+    scope['google-map-${currentNode.identifier}'].map['j:lng'] = ${currentNode.properties['j:lng'].double};
+
     // Boostrap app
     angular.bootstrap(document.getElementById("google-map-${currentNode.identifier}"),['googleMapWidgetApp']);
 </script>

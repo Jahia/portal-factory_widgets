@@ -1,3 +1,4 @@
+<%@ taglib prefix="functions" uri="http://www.jahia.org/tags/functions" %>
 <c:set var="widgetHasEditView" value="${false}"/>
 <c:set var="widgetFullView" value="${false}"/>
 
@@ -19,7 +20,7 @@
 
 <c:set value="${referencedWidget.properties['jcr:title'].string}" var="widgetTitle"/>
 <fmt:message key="portalWidget.box.advanced.deleteConfirmMessage" var="deleteConfirmMessage">
-    <fmt:param value="${widgetTitle}"/>
+    <fmt:param value="${functions:escapeJavaScript(widgetTitle)}"/>
 </fmt:message>
 <fmt:message key="portalWidget.box.advanced.ref.deleteConfirmMessage" var="deleteConfirmMessageRef"/>
 <script type="text/javascript">

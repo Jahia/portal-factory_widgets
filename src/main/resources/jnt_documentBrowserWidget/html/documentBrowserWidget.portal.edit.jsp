@@ -5,6 +5,7 @@
 <%@ taglib prefix="template" uri="http://www.jahia.org/tags/templateLib" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="ui" uri="http://www.jahia.org/tags/uiComponentsLib"%>
+<%@ taglib prefix="functions" uri="http://www.jahia.org/tags/functions" %>
 <%--@elvariable id="currentNode" type="org.jahia.services.content.JCRNodeWrapper"--%>
 <%--@elvariable id="out" type="java.io.PrintWriter"--%>
 <%--@elvariable id="script" type="org.jahia.services.render.scripting.Script"--%>
@@ -32,8 +33,7 @@
                 <div class="span12">
                     <label>
                         <span><fmt:message key="title"/>:</span>
-                        <input type="text" name="jcr:title" ng-model="doc['jcr:title']"
-                               ng-init="doc['jcr:title'] = '${currentNode.displayableName}'"/>
+                        <input type="text" name="jcr:title" ng-model="doc['jcr:title']" />
                     </label>
                 </div>
             </div>
@@ -42,8 +42,7 @@
 				<div class="span12">
 					<label>
 						<span>Root path:</span>
-						<input type="text" name="rootPath" ng-model="doc.rootPath" id="rootPath_${currentNode.identifier}"
-							   ng-init="doc.rootPath = '${currentNode.properties['rootPath'].string}'"/>
+						<input type="text" name="rootPath" ng-model="doc.rootPath" id="rootPath_${currentNode.identifier}" />
 
                         <script type="text/ng-template" id="treeItem.html">
                             <span ng-click="load(item)" ng-class="isSelected(item) ? 'selected' : ''"><i ng-class="getIcon(item)"></i> {{item.title}}</span>
@@ -84,6 +83,14 @@
 </div>
 
 <script type="text/javascript">
+    if (typeof scope == 'undefined') {
+        var scope = { };
+    }
+    scope['document-browser-${currentNode.identifier}'] = {};
+    scope['document-browser-${currentNode.identifier}'].doc = {};
+    scope['document-browser-${currentNode.identifier}'].doc['jcr:title'] = '${functions:escapeJavaScript(currentNode.displayableName)}';
+    scope['document-browser-${currentNode.identifier}'].doc.rootPath = '${functions:escapeJavaScript(currentNode.properties['rootPath'].string)}';
+
     // Boostrap app
     angular.bootstrap(document.getElementById("document-browser-${currentNode.identifier}"), ['documentBrowserWidgetApp']);
 </script>

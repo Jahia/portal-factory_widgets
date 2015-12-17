@@ -40,7 +40,7 @@
                     <div class="span12">
                         <label>
                             <span><fmt:message key="title"/>:</span>
-                            <input type="text" name="jcr:title" value="${currentNode.displayableName}"/>
+                            <input type="text" name="jcr:title" value="<c:out value="${currentNode.displayableName}"/>"/>
                         </label>
                     </div>
                 </div>
@@ -49,7 +49,7 @@
                     <div class="span12">
                         <label>
                             <span>Script:</span>
-                            <textarea name="j:script">${currentNode.properties['j:script'].string}</textarea>
+                            <textarea name="j:script"><c:out value="${currentNode.properties['j:script'].string}"/></textarea>
                         </label>
                     </div>
                 </div>

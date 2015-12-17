@@ -4,6 +4,7 @@
 <%@ taglib prefix="utility" uri="http://www.jahia.org/tags/utilityLib" %>
 <%@ taglib prefix="template" uri="http://www.jahia.org/tags/templateLib" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="functions" uri="http://www.jahia.org/tags/functions" %>
 <%--@elvariable id="currentNode" type="org.jahia.services.content.JCRNodeWrapper"--%>
 <%--@elvariable id="out" type="java.io.PrintWriter"--%>
 <%--@elvariable id="script" type="org.jahia.services.render.scripting.Script"--%>
@@ -28,8 +29,7 @@
                 <div class="span12">
                     <label>
                         <span><fmt:message key="title"/>:</span>
-                        <input type="text" name="jcr:title" ng-model="feed['jcr:title']"
-                               ng-init="feed['jcr:title'] = '${currentNode.displayableName}'"/>
+                        <input type="text" name="jcr:title" ng-model="feed['jcr:title']" />
                     </label>
                 </div>
             </div>
@@ -39,8 +39,7 @@
                     <label>
                         <span><fmt:message key="jnt_googleFeedWidget.url"/>:</span>
 
-                        <input type="text" name="url" ng-model="feed.url"
-                               ng-init="feed.url = '${currentNode.properties['url'].string}'" required/>
+                        <input type="text" name="url" ng-model="feed.url" required/>
                     </label>
                 </div>
             </div>
@@ -50,8 +49,7 @@
                     <label>
                         <span><fmt:message key="jnt_googleFeedWidget.nbEntries"/>:</span>
 
-                        <input type="number" name="nbEntries" ng-model="feed.nbEntries"
-                               ng-init="feed.nbEntries = ${currentNode.properties['nbEntries'].long}"/>
+                        <input type="number" name="nbEntries" ng-model="feed.nbEntries" />
                     </label>
                 </div>
             </div>
@@ -69,6 +67,15 @@
 </div>
 
 <script type="text/javascript">
+    if (typeof scope == 'undefined') {
+        var scope = { };
+    }
+    scope['google-feed-${currentNode.identifier}'] = {};
+    scope['google-feed-${currentNode.identifier}'].feed = {};
+    scope['google-feed-${currentNode.identifier}'].feed['jcr:title'] = '${functions:escapeJavaScript(currentNode.displayableName)}';
+    scope['google-feed-${currentNode.identifier}'].feed.url = '${functions:escapeJavaScript(currentNode.properties['url'].string)}';
+    scope['google-feed-${currentNode.identifier}'].feed.nbEntries = ${currentNode.properties['nbEntries'].long};
+
     // Boostrap app
     angular.bootstrap(document.getElementById("google-feed-${currentNode.identifier}"), ['googleFeedWidgetApp']);
 </script>

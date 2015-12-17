@@ -118,6 +118,7 @@ documentBrowserWidget.controller('document-browser-edit-ctrl', ['$scope', functi
     };
 
     $scope.init = function (widgetId, url) {
+        $scope.doc = scope[widgetId].doc;
         $scope.widget = portal.getCurrentWidget(widgetId);
         $scope.url = url;
 
