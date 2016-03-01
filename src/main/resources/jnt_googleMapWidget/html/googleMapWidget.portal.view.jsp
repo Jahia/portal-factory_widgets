@@ -14,7 +14,7 @@
 <%--@elvariable id="currentResource" type="org.jahia.services.render.Resource"--%>
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
 
-<template:addResources type="javascript" resources="app/googleMapWidget.js" />
+<template:addResources type="javascript" resources="portal/app/googleMapWidget.js" />
 
 <style>
     .google-map {

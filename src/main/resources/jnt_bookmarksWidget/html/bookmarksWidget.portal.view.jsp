@@ -19,7 +19,7 @@
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
 <template:include view="hidden.header"/>
 <template:addResources type="css" resources="bookmarks.css"/>
-<template:addResources type="javascript" resources="app/bookmarksWidget.js" />
+<template:addResources type="javascript" resources="portal/app/bookmarksWidget.js" />
 <jcr:node var="user" path="${renderContext.user.localPath}"/>
 
 <div id="bookmarks-${currentNode.identifier}" ng-controller="bookmarks-ctrl"

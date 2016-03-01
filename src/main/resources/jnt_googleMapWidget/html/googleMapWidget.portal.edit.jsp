@@ -15,7 +15,7 @@
 <%--@elvariable id="currentResource" type="org.jahia.services.render.Resource"--%>
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
 
-<template:addResources type="javascript" resources="app/googleMapWidget.js"/>
+<template:addResources type="javascript" resources="portal/app/googleMapWidget.js"/>
 <template:addResources type="css" resources="commonsWidget.css"/>
 
 <div id="google-map-${currentNode.identifier}" ng-controller="google-map-edit-ctrl"

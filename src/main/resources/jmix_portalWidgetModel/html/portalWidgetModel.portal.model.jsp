@@ -20,7 +20,7 @@
 <c:set var="portalTabNode" value="${jcr:getParentOfType(currentNode, portalTabNT)}"/>
 
 <template:addResources type="css" resources="portal-widget-model.css"/>
-<template:addResources type="javascript" resources="app/portalWidgetModelCtrl.js"/>
+<template:addResources type="javascript" resources="portal/app/portalWidgetModelCtrl.js"/>
 
 <div class="widget-model">
     <h2>

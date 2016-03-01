@@ -13,7 +13,7 @@
 <%--@elvariable id="currentResource" type="org.jahia.services.render.Resource"--%>
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
 
-<template:addResources type="javascript" resources="app/documentBrowserWidget.js"/>
+<template:addResources type="javascript" resources="portal/app/documentBrowserWidget.js"/>
 <template:addResources type="css" resources="docBrowserWidget.css"/>
 
 <div class="docBrowserWidget" id="document-browser-${currentNode.identifier}"
