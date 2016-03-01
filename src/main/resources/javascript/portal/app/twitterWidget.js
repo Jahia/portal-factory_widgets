@@ -48,8 +48,7 @@ twitterWidget.controller('twitter-edit-ctrl', ['$scope', function($scope) {
     $scope.init = function(widgetId){
         $scope.twitter = scope[widgetId].twitter;
         $scope.widget = portal.getCurrentWidget(widgetId);
-        //$("#" + widgetId).find(".twitter-tooltip").tooltip();
-        $('[data-toggle="tooltip"]').tooltip({
+        angular.element('[data-toggle="tooltip"]').tooltip({
             container: "body"
         });
     };
