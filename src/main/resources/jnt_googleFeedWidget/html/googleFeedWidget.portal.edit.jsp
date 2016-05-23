@@ -14,7 +14,7 @@
 <%--@elvariable id="currentResource" type="org.jahia.services.render.Resource"--%>
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
 
-<template:addResources type="javascript" resources="app/googleFeedWidget.js"/>
+<template:addResources type="javascript" resources="portal/app/googleFeedWidget.js"/>
 <template:addResources type="css" resources="commonsWidget.css"/>
 
 <div id="google-feed-${currentNode.identifier}" ng-controller="google-feed-edit-ctrl"

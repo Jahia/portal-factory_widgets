@@ -19,7 +19,7 @@
 <c:set var="portalTabNT" value="<%= PortalConstants.JNT_PORTAL_TAB %>"/>
 <c:set var="portalTabNode" value="${jcr:getParentOfType(currentNode, portalTabNT)}"/>
 
-<template:addResources type="javascript" resources="app/bookmarksWidget.js" />
+<template:addResources type="javascript" resources="portal/app/bookmarksWidget.js" />
 <template:addResources type="css" resources="commonsWidget.css"/>
 
 <div class="widget-edit" id="bookmarks-${currentNode.identifier}" ng-controller="bookmarks-edit-ctrl"

@@ -14,8 +14,8 @@
 <%--@elvariable id="currentResource" type="org.jahia.services.render.Resource"--%>
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
 
-<template:addResources type="javascript" resources="angular-bootstrap-colorpicker.js"/>
-<template:addResources type="javascript" resources="app/twitterWidget.js"/>
+<template:addResources type="javascript" resources="portal/vendor/angular-bootstrap-colorpicker.js"/>
+<template:addResources type="javascript" resources="portal/app/twitterWidget.js"/>
 <template:addResources type="css" resources="twitterWidget.css"/>
 <template:addResources type="css" resources="commonsWidget.css"/>
 <template:addResources type="css" resources="colorpicker.css"/>

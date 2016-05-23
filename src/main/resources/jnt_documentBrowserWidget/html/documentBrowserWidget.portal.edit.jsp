@@ -15,7 +15,7 @@
 <%--@elvariable id="currentResource" type="org.jahia.services.render.Resource"--%>
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
 
-<template:addResources type="javascript" resources="app/documentBrowserWidget.js" />
+<template:addResources type="javascript" resources="portal/app/documentBrowserWidget.js" />
 <template:addResources type="css" resources="commonsWidget.css"/>
 <template:addResources type="css" resources="docBrowserWidget.css"/>
 
@@ -23,9 +23,7 @@
      ng-init="init('document-browser-${currentNode.identifier}'
      , '<c:url value="${url.base}${currentNode.path}"/>')">
 
-    <h2>
-        Document browser
-    </h2>
+    <h2><fmt:message key="jnt_documentBrowserWidget.portal.edit.title"/></h2>
 
     <div class="box-1">
         <form name="feed_form">
