@@ -27,54 +27,50 @@
 
     <div class="box-1">
         <form name="feed_form">
-            <div class="row-fluid">
-                <div class="span12">
-                    <label>
-                        <span><fmt:message key="title"/>:</span>
-                        <input type="text" name="jcr:title" ng-model="doc['jcr:title']" />
-                    </label>
-                </div>
+            <div class="form-group form-group-sm">
+                <label>
+                    <fmt:message key="title"/>
+                </label>
+                <input class="form-control" type="text" name="jcr:title" ng-model="doc['jcr:title']" />
             </div>
 
-			<div class="row-fluid">
-				<div class="span12">
-					<label>
-						<span>Root path:</span>
-						<input type="text" name="rootPath" ng-model="doc.rootPath" id="rootPath_${currentNode.identifier}" />
+            <div class="form-group form-group-sm">
+                <label>
+                    Root path
+                </label>
+                <input class="form-control" type="text" name="rootPath" ng-model="doc.rootPath" id="rootPath_${currentNode.identifier}" />
+            </div>
 
-                        <script type="text/ng-template" id="treeItem.html">
-                            <span ng-click="load(item)" ng-class="isSelected(item) ? 'selected' : ''"><i ng-class="getIcon(item)"></i> {{item.title}}</span>
-                            <a ng-if="isFile(item)" href="{{item.url}}" download><i class="icon-download-alt"></i>download</a>
+            <div class="form-group form-group-sm">
+                <script type="text/ng-template" id="treeItem.html">
+                    <span ng-click="load(item)" ng-class="isSelected(item) ? 'selected' : ''"><i ng-class="getIcon(item)"></i> {{item.title}}</span>
+                    <a ng-if="isFile(item)" href="{{item.url}}" download><i class="icon-download-alt"></i>download</a>
 
-                            <ul ng-show="item.displayed">
-                                <li ng-repeat="item in item.childs" ng-include="'treeItem.html'" class="parent_li">
+                    <ul ng-show="item.displayed">
+                        <li ng-repeat="item in item.childs" ng-include="'treeItem.html'" class="parent_li">
+                        </li>
+                    </ul>
+                </script>
+
+                <div class="tree well">
+                    <ul>
+                        <li class="parent_li">
+                            <span ng-click="load(root)"><i ng-class="getIcon(root)"></i> {{root.title}}</span>
+                            <ul ng-show="root.displayed">
+                                <li ng-repeat="item in root.childs" ng-include="'treeItem.html'" class="parent_li">
+
                                 </li>
                             </ul>
-                        </script>
-
-                        <div class="tree well">
-                            <ul>
-                                <li class="parent_li">
-                                    <span ng-click="load(root)"><i ng-class="getIcon(root)"></i> {{root.title}}</span>
-                                    <ul ng-show="root.displayed">
-                                        <li ng-repeat="item in root.childs" ng-include="'treeItem.html'" class="parent_li">
-
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-					</label>
-				</div>
+                        </li>
+                    </ul>
+                </div>
 			</div>
 
-            <div class="row-fluid">
-                <div class="span12">
-                    <button class="btn" ng-click="cancel()"><fmt:message key="cancel"/></button>
-                    <button class="btn btn-primary" ng-click="update()">
-                        <fmt:message key="save"/>
-                    </button>
-                </div>
+            <div class="form-group form-group-sm">
+                <button type="button" class="btn btn-sm btn-default" ng-click="cancel()"><fmt:message key="cancel"/></button>
+                <button type="button" class="btn btn-sm btn-primary" ng-click="update()">
+                    <fmt:message key="save"/>
+                </button>
             </div>
         </form>
     </div>

@@ -25,42 +25,32 @@
 
     <div class="box-1">
         <form name="feed_form">
-            <div class="row-fluid">
-                <div class="span12">
-                    <label>
-                        <span><fmt:message key="title"/>:</span>
-                        <input type="text" name="jcr:title" ng-model="feed['jcr:title']" />
-                    </label>
-                </div>
+            <div class="form-group form-group-sm">
+                <label>
+                    <fmt:message key="title"/>
+                </label>
+                <input class="form-control" type="text" name="jcr:title" ng-model="feed['jcr:title']" />
             </div>
 
-            <div class="row-fluid">
-                <div class="span12">
-                    <label>
-                        <span><fmt:message key="jnt_googleFeedWidget.url"/>:</span>
-
-                        <input type="text" name="url" ng-model="feed.url" required/>
-                    </label>
-                </div>
+            <div class="form-group form-group-sm">
+                <label>
+                    <fmt:message key="jnt_googleFeedWidget.url"/>
+                </label>
+                <input class="form-control" type="text" name="url" ng-model="feed.url" required/>
             </div>
 
-            <div class="row-fluid">
-                <div class="span12">
-                    <label>
-                        <span><fmt:message key="jnt_googleFeedWidget.nbEntries"/>:</span>
-
-                        <input type="number" name="nbEntries" ng-model="feed.nbEntries" />
-                    </label>
-                </div>
+            <div class="form-group form-group-sm">
+                <label>
+                    <fmt:message key="jnt_googleFeedWidget.nbEntries"/>
+                </label>
+                <input class="form-control" type="number" name="nbEntries" ng-model="feed.nbEntries" />
             </div>
 
-            <div class="row-fluid">
-                <div class="span12">
-                    <button class="btn" ng-click="cancel()"><fmt:message key="cancel"/></button>
-                    <button class="btn btn-primary" ng-click="update(feed)">
-                        <fmt:message key="save"/>
-                    </button>
-                </div>
+            <div class="form-group form-group-sm">
+                <button type="button" class="btn btn-sm btn-default" ng-click="cancel()"><fmt:message key="cancel"/></button>
+                <button type="button" class="btn btn-sm btn-primary" ng-click="update(feed)">
+                    <fmt:message key="save"/>
+                </button>
             </div>
         </form>
     </div>

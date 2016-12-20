@@ -4,7 +4,6 @@
 <%@ taglib prefix="utility" uri="http://www.jahia.org/tags/utilityLib" %>
 <%@ taglib prefix="template" uri="http://www.jahia.org/tags/templateLib" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ taglib prefix="widget" uri="http://www.jahia.org/tags/widgetLib" %>
 <%@ taglib prefix="functions" uri="http://www.jahia.org/tags/functions" %>
 <%--@elvariable id="currentNode" type="org.jahia.services.content.JCRNodeWrapper"--%>
 <%--@elvariable id="out" type="java.io.PrintWriter"--%>
@@ -25,50 +24,37 @@
     </h2>
 
     <div class="box-1">
-        <form name="feed_form">
-            <div class="row-fluid">
-                <div class="span12">
-                    <label>
-                        <span><fmt:message key="title"/>:</span>
-                        <input type="text" name="jcr:title" ng-model="map['jcr:title']" />
-                    </label>
+        <form name="feed_form" class="form-horizontal">
+            <div class="form-group form-group-sm">
+                <label class="col-sm-3 control-label"><fmt:message key="title"/></label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" name="jcr:title" ng-model="map['jcr:title']" />
                 </div>
             </div>
-
-            <div class="row-fluid">
-                <div class="span12">
-                    <label>
-                        <span><fmt:message key="label.height"/> (px):</span>
-
-                        <input type="number" name="j:height" ng-model="map['j:height']" required/>
-                    </label>
+            <div class="form-group form-group-sm">
+                <label class="col-sm-3 control-label"><fmt:message key="label.height"/></label>
+                <div class="col-sm-9">
+                    <input type="number" class="form-control" name="j:height" ng-model="map['j:height']" required/>
                 </div>
             </div>
-
-            <div class="row-fluid">
-                <div class="span12">
-                    <label>
-                        <span><fmt:message key="jnt_googleMapWidget.lat"/>:</span>
-
-                        <input type="text" name="j:lat" ng-model="map['j:lat']" required/>
-                    </label>
+            <div class="form-group form-group-sm">
+                <label class="col-sm-3 control-label"><fmt:message key="jnt_googleMapWidget.lat"/></label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" name="j:lat" ng-model="map['j:lat']" required/>
                 </div>
             </div>
-
-            <div class="row-fluid">
-                <div class="span12">
-                    <label>
-                        <span><fmt:message key="jnt_googleMapWidget.lng"/>:</span>
-
-                        <input type="text" name="j:lng" ng-model="map['j:lng']"  required/>
-                    </label>
+            <div class="form-group form-group-sm">
+                <label class="col-sm-3 control-label"><fmt:message key="jnt_googleMapWidget.lng"/></label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" name="j:lng" ng-model="map['j:lng']" required/>
                 </div>
             </div>
-
-            <div class="row-fluid">
-                <div class="span12">
-                    <button class="btn" ng-click="cancel()"><fmt:message key="cancel"/></button>
-                    <button class="btn btn-primary" ng-click="update(map)">
+            <div class="form-group form-group-sm">
+                <div class="col-sm-9 col-sm-offset-3">
+                    <button type="button" class="btn btn-sm btn-default" ng-click="cancel()">
+                        <fmt:message key="cancel"/>
+                    </button>
+                    <button type="button" class="btn btn-sm btn-primary" ng-click="update(map)">
                         <fmt:message key="save"/>
                     </button>
                 </div>

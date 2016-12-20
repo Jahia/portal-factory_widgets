@@ -34,8 +34,8 @@
         </div>
 
         <form action="#" method="POST" class="widgetModelForm">
-            <div class="row-fluid">
-                <div class="span12">
+            <div class="row">
+                <div class="col-md-12">
                     <label>
                         <span><fmt:message key="portalWidgetModel.behavior"/>:</span>
                         <select name="j:behavior">
@@ -52,10 +52,10 @@
                 </div>
             </div>
 
-            <div class="row-fluid">
-                <div class="span12">
-                    <button class="btn cancel"><fmt:message key="cancel"/></button>
-                    <button class="btn btn-primary submit"><fmt:message key="save"/></button>
+            <div class="row">
+                <div class="col-md-12">
+                    <button class="btn btn-sm btn-default cancel"><fmt:message key="cancel"/></button>
+                    <button class="btn btn-sm btn-primary submit"><fmt:message key="save"/></button>
                 </div>
             </div>
         </form>

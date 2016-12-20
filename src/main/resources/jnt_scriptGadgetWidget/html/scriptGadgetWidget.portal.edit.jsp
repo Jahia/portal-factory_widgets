@@ -32,31 +32,24 @@
 
     <div class="box-1">
         <template:tokenizedForm disableXSSFiltering="true">
-            <form action="<c:url value="${url.base}${currentNode.path}"/>" method="POST">
+            <form action="<c:url value="${url.base}${currentNode.path}"/>" method="POST" class="form-horizontal">
                 <input type="hidden" name="jcrRedirectTo" value="<c:url value="${url.base}${portalTabNode.path}"/>">
                 <input type="hidden" name="jcrNodeType" value="${currentNode.primaryNodeTypeName}"/>
-
-                <div class="row-fluid">
-                    <div class="span12">
-                        <label>
-                            <span><fmt:message key="title"/>:</span>
-                            <input type="text" name="jcr:title" value="<c:out value="${currentNode.displayableName}"/>"/>
-                        </label>
+                <div class="form-group form-group-sm">
+                    <label class="col-sm-3 control-label"><fmt:message key="title"/></label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" name="jcr:title" value="<c:out value="${currentNode.displayableName}"/>"/>
                     </div>
                 </div>
-
-                <div class="row-fluid">
-                    <div class="span12">
-                        <label>
-                            <span>Script:</span>
-                            <textarea name="j:script"><c:out value="${currentNode.properties['j:script'].string}"/></textarea>
-                        </label>
+                <div class="form-group form-group-sm">
+                    <label class="col-sm-3 control-label">Script</label>
+                    <div class="col-sm-9">
+                        <textarea class="form-control" name="j:script"><c:out value="${currentNode.properties['j:script'].string}"/></textarea>
                     </div>
                 </div>
-
-                <div class="row-fluid">
-                    <div class="span12">
-                        <button class="btn btn-primary" type="submit">
+                <div class="form-group form-group-sm">
+                    <div class="col-sm-9 col-sm-offset-3">
+                        <button class="btn btn-sm btn-primary" type="submit">
                             <fmt:message key="save"/>
                         </button>
                     </div>

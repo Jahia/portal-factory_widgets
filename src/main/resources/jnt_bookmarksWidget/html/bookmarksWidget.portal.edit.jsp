@@ -29,32 +29,26 @@
     </h2>
 
     <div class="box-1">
-        <form name="bookarm_form">
-            <div class="row-fluid">
-                <div class="span12">
-                    <label>
-                        <span><fmt:message key="title"/>:</span>
-                        <input type="text" name="jcr:title" ng-model="bookmark['jcr:title']" />
-                    </label>
-                </div>
+        <form name="bookarm_form" class="form-horizontal">
+            <div class="form-group form-group-sm">
+                <label>
+                    <fmt:message key="title"/>
+                </label>
+                <input class="form-control" type="text" name="jcr:title" ng-model="bookmark['jcr:title']" />
             </div>
 
-            <div class="row-fluid">
-                <div class="span12">
-                    <label>
-                        <span><fmt:message key="jnt_googleFeedWidget.nbEntries"/>:</span>
-                        <input type="number" name="numberOfBookmarksPerPage" ng-model="bookmark.numberOfBookmarksPerPage" required />
-                    </label>
-                </div>
+            <div class="form-group form-group-sm">
+                <label>
+                    <span><fmt:message key="jnt_googleFeedWidget.nbEntries"/></span>
+                </label>
+                <input class="form-control" type="number" name="numberOfBookmarksPerPage" ng-model="bookmark.numberOfBookmarksPerPage" required />
             </div>
 
-            <div class="row-fluid">
-                <div class="span12">
-                    <button class="btn" ng-click="cancel()"><fmt:message key="cancel"/></button>
-                    <button class="btn btn-primary" ng-disabled="bookarm_form.$invalid" ng-click="update()">
-                        <fmt:message key="save"/>
-                    </button>
-                </div>
+            <div class="form-group form-group-sm">
+                <button type="button" class="btn btn-sm btn-default" ng-click="cancel()"><fmt:message key="cancel"/></button>
+                <button type="button" class="btn btn-sm btn-primary" ng-disabled="bookarm_form.$invalid" ng-click="update()">
+                    <fmt:message key="save"/>
+                </button>
             </div>
         </form>
     </div>
