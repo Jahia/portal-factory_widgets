@@ -101,11 +101,11 @@ Jahia.Portal.AdvancedWidgetWrapper.prototype = {
         instance.$widget.find(".minimize_action").on("click", function(){
             instance._minimize = !instance._minimize;
             if(instance._minimize){
-                $(this).removeClass("icon-minus");
-                $(this).addClass("icon-plus");
+                $(this).removeClass("glyphicon glyphicon-minus");
+                $(this).addClass("glyphicon glyphicon-plus");
             }else {
-                $(this).removeClass("icon-plus");
-                $(this).addClass("icon-minus");
+                $(this).removeClass("glyphicon glyphicon-plus");
+                $(this).addClass("glyphicon glyphicon-minus");
             }
             instance.$widget.find(".widget-content").toggle();
         });
