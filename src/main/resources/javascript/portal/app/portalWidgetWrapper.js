@@ -67,9 +67,9 @@ Jahia.Portal.AdvancedWidgetWrapper.prototype = {
         var resizeSwitch = instance.$widget.find(".resize_switch");
 
         if(instance.widget._state == "full"){
-            resizeSwitch.addClass("icon-resize-small");
+            resizeSwitch.addClass("glyphicon glyphicon-resize-small");
         }else {
-            resizeSwitch.addClass("icon-resize-full");
+            resizeSwitch.addClass("glyphicon glyphicon-resize-full");
         }
 
         resizeSwitch.on("click", function(){

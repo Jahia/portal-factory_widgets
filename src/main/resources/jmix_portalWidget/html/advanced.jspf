@@ -36,7 +36,7 @@
     <h4 class="panel-title" style="${textStyle}">${widgetTitle}</h4>
 
     <div class="widget-tools">
-        <i class="glyphicon glyphicon-resize-full ${iconColorClass} resize_switch"></i>
+        <i class="resize_switch ${iconColorClass}"></i>
         <c:if test="${widgetHasEditView && widgetIsEditable}">
             <i class="glyphicon glyphicon-cog ${iconColorClass} edit_switch"></i>
         </c:if>
